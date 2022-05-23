@@ -1,0 +1,16 @@
+{% extends "trendz/layout.html" %}
+
+{% block body %}
+<h5> Login </h5>
+
+{% if message %}
+<div> {{message}} </div>
+{% endif %}
+
+<form action="{% url 'login' %}" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" autocomplete="on" value="Submit">
+</form>
+Don't have an account? <a href="{% url 'register' %}">Register here.</a>
+{% endblock %}
